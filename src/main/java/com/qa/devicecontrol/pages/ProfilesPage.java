@@ -42,15 +42,12 @@ public class ProfilesPage {
 		elementUtil.doSendKeys(profilenametextfield, ProfileName);
 		elementUtil.doClick(profileSavebutton);
 		elementUtil.waitforElementToBeVisible(profilename, 10);
-		for(int i=0;i<=3;i++) {
-			try {
-				elementUtil.doClick(profiledelete);
-				break;
-			}catch(Exception e){
-				System.out.println(e.getMessage());
-			}
-			
-		}
+		/*
+		 * for(int i=0;i<=3;i++) { try { elementUtil.doClick(profiledelete); break;
+		 * }catch(Exception e){ System.out.println(e.getMessage()); }
+		 * 
+		 * }
+		 */
 		
 	}
 
