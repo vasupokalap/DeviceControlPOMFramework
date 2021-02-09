@@ -29,4 +29,28 @@
       </classes>
   </test>
   
+  <test name="Add Profile Page test">
+      <classes>
+     	 <class name="com.qa.devicecontrol.tests.AddProfilePageTest"/>
+      </classes>
+  </test>
+  
+  <test name="Themes Page test">
+      <classes>
+     	 <class name="com.qa.devicecontrol.tests.ThemesPageTest"/>
+      </classes>
+  </test>
+  
+  <test name="Add Themes Page test">
+      <classes>
+     	 <class name="com.qa.devicecontrol.tests.AddThemesPageTest"/>
+      </classes>
+  </test>
+  
+  <test name="Edit Profile Page test">
+      <classes>
+     	 <class name="com.qa.devicecontrol.tests.EditProfilePageTest"/>
+      </classes>
+  </test>
+  
 </suite>

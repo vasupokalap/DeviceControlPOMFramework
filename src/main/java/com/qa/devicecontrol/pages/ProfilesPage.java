@@ -12,12 +12,7 @@ public class ProfilesPage {
 	private By profilesheader = By.xpath("//span[text()='Profiles']");
 	private By profilesearchbox = By.xpath("//input[@class='inputsearch-box']");
 	private By addprofilebutton = By.xpath("//span[text()='Add Profile']");
-	private By selectroomdisplay = By.xpath("//div[text()='Room Display']");
-	private By profilenametextfield = By.id("profileName");
-	private By profileSavebutton = By.xpath("//span[text()=' Save ']");
-	private By profilename = By.xpath("(//span[@class='clamp-reference'])[position()=1]");
-	//private By profiledelete = By.xpath("(//span[@class='delete-text'])[position()=1]");
-	private By profiledelete = By.xpath("(//span[text()='Delete']");
+	private By editroomdisplaybutton = By.xpath("(//span[text()='Room Display']/../../..//span[@class='edit-text'])[1]");
 	
 	
 	public ProfilesPage(WebDriver driver) {
@@ -34,21 +29,27 @@ public class ProfilesPage {
 		return elementUtil.doIsDisplayed(profilesearchbox);
 	}
 	
-	public void addRoomDisplayEventsProfile(String ProfileName) {
-		elementUtil.doClick(addprofilebutton);
-		elementUtil.waitforElementPresent(selectroomdisplay, 10);
-		elementUtil.doClick(selectroomdisplay);
-		elementUtil.waitforElementToBeVisible(profilenametextfield, 10);
-		elementUtil.doSendKeys(profilenametextfield, ProfileName);
-		elementUtil.doClick(profileSavebutton);
-		elementUtil.waitforElementToBeVisible(profilename, 10);
-		/*
-		 * for(int i=0;i<=3;i++) { try { elementUtil.doClick(profiledelete); break;
-		 * }catch(Exception e){ System.out.println(e.getMessage()); }
-		 * 
-		 * }
-		 */
+	public boolean isAddProfileButtonExists() {
+		return elementUtil.doIsDisplayed(addprofilebutton);
 		
+	}
+	
+	private void clickonAddProfilesOption() {
+		elementUtil.doClick(addprofilebutton);
+	}
+	
+	private void clickonEditRoomDisplayProfilesOption() {
+		elementUtil.doClick(editroomdisplaybutton);
+	}
+	
+	public AddProfilePage gotoAddProfilesPage() {
+		clickonAddProfilesOption();
+		return new AddProfilePage(driver);
+	}
+	
+	public EditProfilePage gotoEditRoomDisplayProfilesPage() {
+		clickonEditRoomDisplayProfilesOption();
+		return new EditProfilePage(driver);
 	}
 
 }

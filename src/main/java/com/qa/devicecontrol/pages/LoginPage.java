@@ -17,6 +17,7 @@ public class LoginPage extends BasePage{
 	//private By username2 = By.className("Vasu");
 	private By password = By.name("password");
 	private By loginbutton = By.xpath("//span[@class='mat-button-wrapper']");
+	private By qubicdevicesoption = By.xpath("//span[text()=' Qbic Devices']");
 	
 	//Constructor of the page:
 	public LoginPage(WebDriver driver) {
@@ -41,15 +42,14 @@ public class LoginPage extends BasePage{
 		elementUtil.doSendKeys(password, pwd);
 		elementUtil.doClick(loginbutton);
 		//driver.findElement(loginbutton).click();
+		elementUtil.waitforElementPresent(qubicdevicesoption, 20);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return new HomePage(driver);
-		
 	}
 
 }

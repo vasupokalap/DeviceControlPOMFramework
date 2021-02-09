@@ -64,10 +64,20 @@ public class HomePage extends BasePage{
 		elementUtil.waitforElementPresent(profiles, 15);
 		elementUtil.doClick(profiles);
 	}
+	
+	private void clickonThemesOption() {
+		elementUtil.waitforElementPresent(themes, 15);
+		elementUtil.doClick(themes);
+	}
+	
 	public ProfilesPage gotoProfilesPage() {
 		clickonProfilesOption();
-		return new ProfilesPage(driver);
-		
+		return new ProfilesPage(driver);	
+	}
+	
+	public ThemesPage gotoThemesPage() {
+		clickonThemesOption();
+		return new ThemesPage(driver);	
 	}
 
 }
